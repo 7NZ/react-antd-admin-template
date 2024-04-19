@@ -1,0 +1,16 @@
+.loginWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    background: #f2f2f2;
+    .loginForm {
+        min-width: 320px;
+        padding: 50px 30px;
+        background: #fff;
+        box-shadow: 0 0 10px #eee;
+    }
+    .loginBtn {
+        width: 100%;
+    }
+}

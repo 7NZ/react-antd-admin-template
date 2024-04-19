@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "name": "dynamicPage1",
+      "url": "/dynamicPage1",
+      "key": "dynamicp1"
+    },
+    {
+      "name": "dynamicPage2",
+      "url": "/dynamicPage2",
+      "key": "dynamicp2"
+    },
+    {
+      "name": "dynamicNest",
+      "url": "/dynamicNest",
+      "key": "nest",
+      "children": [
+        {
+          "name": "dynamicSubpage",
+          "url": "/dynamicNest/subpage",
+          "key": "dynamicpsub"
+        }
+      ]
+    }
+  ]
+}
