@@ -22,18 +22,6 @@ export default defineConfig(() => {
         '@': resolve(__dirname, './src')
       }
     },
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: (id) => {
-            const deps = id.split('/');
-            if (deps.includes('react') || deps.includes('react-dom')) {
-              return 'react-vendor';
-            }
-          }
-        }
-      }
-    },
     server: {
       port: 8004,
       host: true,
