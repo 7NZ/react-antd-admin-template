@@ -4,8 +4,8 @@ import type { MenuProps } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLayoutData, useLayoutDispath } from '@/contexts';
-import { ReactComponent as LightIcon } from '@/assets/light.svg';
-import { ReactComponent as DarkIcon } from '@/assets/dark.svg';
+import LightIcon from '@/assets/light.svg?react';
+import DarkIcon from '@/assets/dark.svg?react';
 
 const HeaderRight = () => {
   const navigate = useNavigate();

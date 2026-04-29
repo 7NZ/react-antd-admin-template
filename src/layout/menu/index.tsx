@@ -3,7 +3,7 @@ import { Layout, Menu, Skeleton } from 'antd';
 import type { MenuProps } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLayoutData } from '@/contexts';
-import { type MenuRoute, flatRoutes } from '@/router';
+import { type MenuRoute, flatRoutes } from '@/router/helper';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

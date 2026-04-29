@@ -1,4 +1,4 @@
-import { type FC, createElement } from 'react';
+import { type FC } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Layout } from 'antd';
 import { useLayoutData, useLayoutDispath } from '@/contexts';
@@ -9,19 +9,17 @@ const Header: FC = () => {
   const layoutData = useLayoutData();
   const { onToggleCollapse } = useLayoutDispath();
 
-  const MenuCollapseTrigger = () => {
-    return (<>
-      {createElement(layoutData.collapse ? MenuUnfoldOutlined : MenuFoldOutlined, {
-        className: 'trigger',
-        onClick: () => onToggleCollapse(!layoutData.collapse)
-      })}
-    </>);
+  const toggleCollpase = () => {
+    onToggleCollapse(!layoutData.collapse);
   };
 
   return (
     <Layout.Header className="header">
       <div className="left">
-        <MenuCollapseTrigger />
+        {layoutData.collapse
+          ? <MenuUnfoldOutlined onClick={toggleCollpase} />
+          : <MenuFoldOutlined onClick={toggleCollpase} />
+        }
         <Breadcrumbs />
       </div>
       <HeaderRight />

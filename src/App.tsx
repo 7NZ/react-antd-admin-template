@@ -1,48 +1,15 @@
 import { type FC, Suspense, useEffect, useState } from 'react';
-import { createHashRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import type { RouteObject, RouterProviderProps } from 'react-router-dom';
 import { Spin } from 'antd';
 import Container from '@/layout/container';
-import staticRoutes, { convertMenuData, flatRoutes } from '@/router';
+import staticRoutes from '@/router';
 import { useLayoutDispath, useLayoutData } from '@/contexts';
-import type { MenuRoute } from '@/router';
+import { convertMenuData, flatRoutes, convertRouteData, notLayoutRouteData } from '@/router/helper';
 import './App.scss';
 import PageNotFound from '@/pages/404';
 import menuData from '@/assets/menu.json';
 
-// convert defined route to react router data
-const convertRouteData = (routes: MenuRoute[]) => {
-  const routeArr: RouteObject[] = [];
-  for (let i = 0, len = routes.length; i < len; i++) {
-    const route = routes[i];
-    if (route.layout === undefined || route.layout) {
-      const Content = route.element!;
-      const tempRoute: RouteObject = {
-        path: route.path,
-        element: route.element ? <Content /> : <Outlet />
-      };
-      if (route.children && route.children.length > 0) {
-        tempRoute.element = <Outlet />;
-        tempRoute.children = convertRouteData(route.children);
-      }
-      routeArr.push(tempRoute);
-    }
-  }
-  return routeArr;
-};
-
-// not in layout skeleton like login page
-const notLayoutRouteData = () => {
-  const filteredRoutes = staticRoutes.filter(route => route.layout !== undefined && !route.layout);
-
-  return filteredRoutes.map((route => {
-    const Content = route.element!;
-    return {
-      path: route.path,
-      element: <Content />
-    };
-  }));
-};
 
 const PageLoading = () => {
   return (<div className="page-loading"><Spin size="large" /></div>);

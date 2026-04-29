@@ -16,9 +16,9 @@ type LayoutDispath = {
   setMenuRoutes: (routes: MenuRoute[]) => void;
 };
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+
 const LayoutContext = createContext<LayoutState>({} as LayoutState);
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+
 const LayoutDispathContext = createContext<LayoutDispath>({} as LayoutDispath);
 
 const useLayoutData = () => useContext(LayoutContext);

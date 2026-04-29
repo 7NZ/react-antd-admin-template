@@ -1,6 +1,6 @@
 # React Antd admin
 
-A simple react antd admin boilerplate build width typescript 5, react 18, antd 5, react-router 6, vite 4.
+A simple react antd admin boilerplate build width typescript 5, react 18, antd 6, react-router 6, vite 6.
 
 ## Feature
 
